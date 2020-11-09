@@ -1,0 +1,7 @@
+<%= form_with(model: @blog, local: true) do |form| %>
+  <div class="blog_tweet">
+    <%= form.label :tweet %>
+    <%= form.text_field :tweet, maxlength: 140, size: 50 %>
+  </div>
+  <%= form.submit 'tweet'%>
+<% end %>
