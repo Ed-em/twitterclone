@@ -1,6 +1,7 @@
-<h3>confirm tweet</h3>
-<%= form_with(model: @blog, local: true) do |form| %>
+<h3>Send with the following contents.</h3>
+<%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
   <%= form.hidden_field :tweet %>
   <p><%= @blog.tweet %></p>
-  <%= form.submit  "post tweet" %>
+  <%= form.submit  "tweet" %>
+  <%= form.submit "return", name: 'back' %>
 <% end %>

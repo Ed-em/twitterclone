@@ -1,12 +1,12 @@
 <%= form_with(model: @blog, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if @blog.errors.any? %>
-    <div class="error" id="error_explanation">
+    <div id="error_explanation">
       <h2><%= @blog.errors.count %>There are errors.</h2>
-      <ul>
+
       <% @blog.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <p><%= msg %></p>
       <% end %>
-      </ul>
+
     </div>
   <% end %>
   <div class="blog_tweet">

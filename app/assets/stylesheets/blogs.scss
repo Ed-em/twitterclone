@@ -152,6 +152,24 @@ input[type=submit] {
   border-radius: 5px;
   cursor: pointer;
 }
-.error_explanation {
+#error_explanation {
+  width: 500px;
+  border: 2px solid red;
+  padding: 12px 20px;
+  margin-bottom: 20px;
   margin-left: 200px;
+  margin-left: 400px;
+  border-radius: 5px;
+}
+#error_explanation ul li{
+  list-style: none;
+}
+.your_tweet {
+  border: 2px solid #55a5df;
+  border-radius: 5px;
+  width: 500px;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  margin-left: 400px;
 }
