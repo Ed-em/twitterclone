@@ -1,6 +1,6 @@
-<%= form_with(model: @blog, local: true ,url: confirm_blogs_path) do |form| %>
+<%= form_with(model: @blog, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if @blog.errors.any? %>
-    <div id="error_explanation">
+    <div class="error" id="error_explanation">
       <h2><%= @blog.errors.count %>There are errors.</h2>
       <ul>
       <% @blog.errors.full_messages.each do |msg| %>
@@ -10,9 +10,7 @@
     </div>
   <% end %>
   <div class="blog_tweet">
-    <%= form.label :tweet %>
     <%= form.text_field :tweet %>
   </div>
-  <%= form.submit 'post'%>
+  <%= form.submit 'tweet'%>
 <% end %>
-<%= link_to "tweets", blogs_path %>

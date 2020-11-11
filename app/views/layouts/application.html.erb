@@ -4,12 +4,43 @@
     <title>Twitterclone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+    <header>
+      <div class="navbar clearfix">
+        <ul class="top_left_menu clearfix">
+          <li><%= link_to(blogs_path) do %>
+            <i class="fa fa-fw fa-home"></i><span> twitter</span>
+          <% end %></li>
+          <li><a href="#"><i class="fa fa-fw fa-at"></i> Contact</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-user"></i> Me</a></li>
+        </ul>
+        <ul class="top_right_menu clearfix">
+          <li><a href="#"><i class="fa fa-fw fa-search"></i> Search</a></li>
+          <li><a href="#"><i class="fa fa-fw fa-cog	"></i></a></li>
+          <li><%= link_to(new_blog_path) do %>
+            <i class="fa fa-fw fa-edit" aria-hidden="true"></i><span> Create tweet</span>
+            <% end %></li>
+        </ul>
+      </div>
+   </header>
+<body>
+  <div class="wrapper">
+    <div class="profile">
+      <figure>
+        <%= image_tag("avatar.png", size: "150x150", alt: "Avatar") %>
+      </figure>
+      <strong>Edem D.</strong><br>
+      <small>@Edem</small><br>
+    </div>
+  </div>
+  <%= yield %>
+</body>
+    <footer class="footer">
+      <p>Copyright © 2020 twitter clone by Edem All RIGHTS RESERVED.</p>
+    </footer>
 </html>
