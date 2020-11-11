@@ -1,12 +1,10 @@
-// Place all the styles related to the blogs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
 .navbar {
   background-color: #55a5df;
   height: 50px
 }
 
-/* Navbar links */
+
 .navbar a {
   float: left;
   text-align: center;
@@ -16,12 +14,10 @@
   font-size: 17px;
 }
 
-/* Navbar links on mouse-over */
 .navbar a:hover {
   background-color: #55a5df;
 }
 
-/* Current/active navbar link */
 .active {
   background-color: #262626;
 }
