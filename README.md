@@ -1,24 +1,97 @@
-# README
+movies controller test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  setup do
+    @movie = movies(:one)
+  end
 
-Things you may want to cover:
+  test "should get index" do
+    get movies_url
+    assert_response :success
+  end
 
-* Ruby version
+  test "should get new" do
+    get new_movie_url
+    assert_response :success
+  end
 
-* System dependencies
+  test "should create movie" do
+    assert_difference('Movie.count') do
+      post movies_url, params: { movie: { description: @movie.description, director: @movie.director, playtime: @movie.playtime, poster: @movie.poster, title: @movie.title } }
+    end
 
-* Configuration
+    assert_redirected_to movie_url(Movie.last)
+  end
 
-* Database creation
+  test "should show movie" do
+    get movie_url(@movie)
+    assert_response :success
+  end
 
-* Database initialization
+  test "should get edit" do
+    get edit_movie_url(@movie)
+    assert_response :success
+  end
 
-* How to run the test suite
+  test "should update movie" do
+    patch movie_url(@movie), params: { movie: { description: @movie.description, director: @movie.director, playtime: @movie.playtime, poster: @movie.poster, title: @movie.title } }
+    assert_redirected_to movie_url(@movie)
+  end
 
-* Services (job queues, cache servers, search engines, etc.)
+  test "should destroy movie" do
+    assert_difference('Movie.count', -1) do
+      delete movie_url(@movie)
+    end
 
-* Deployment instructions
+    assert_redirected_to movies_url
+  end
+  
+  
+movies system test
 
-* ...
+setup do
+    @movie = movies(:one)
+  end
+
+  test "visiting the index" do
+    visit movies_url
+    assert_selector "h1", text: "Movies"
+  end
+
+  test "creating a Movie" do
+    visit movies_url
+    click_on "New Movie"
+
+    fill_in "Description", with: @movie.description
+    fill_in "Director", with: @movie.director
+    fill_in "Playtime", with: @movie.playtime
+    fill_in "Poster", with: @movie.poster
+    fill_in "Title", with: @movie.title
+    click_on "Create Movie"
+
+    assert_text "Movie was successfully created"
+    click_on "Back"
+  end
+
+  test "updating a Movie" do
+    visit movies_url
+    click_on "Edit", match: :first
+
+    fill_in "Description", with: @movie.description
+    fill_in "Director", with: @movie.director
+    fill_in "Playtime", with: @movie.playtime
+    fill_in "Poster", with: @movie.poster
+    fill_in "Title", with: @movie.title
+    click_on "Update Movie"
+
+    assert_text "Movie was successfully updated"
+    click_on "Back"
+  end
+
+  test "destroying a Movie" do
+    visit movies_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
+
+    assert_text "Movie was successfully destroyed"
+  end
